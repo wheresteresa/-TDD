@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn server for 39.107.72.190
+
+[Service]
+Restart=on-failure
+User=zoey
+WorkingDirectory=/home/zoey/sites/39.107.72.190/source
+ExecStart=/home/zoey/sites/39.107.72.190/virtualenv/bin/gunicorn \
+--bind unix:/tmp/39.107.72.190.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
